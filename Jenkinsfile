@@ -1,10 +1,50 @@
-
-stage('Build Frontend') {
+pipeline {
+    agent any
+    environment {
+        docker_cred = credentials('docker_cred')
+    }
+    stages {
+        stage('Checkout') {
             steps {
-                // Add steps to build the Angular frontend here
-                dir('frontend-directory') {  // Navigate to your frontend directory
-                    sh 'npm install'        // Install project dependencies
-                    sh 'ng build --prod'    // Build the Angular application for production
+                checkout scm
+            }
+        }
+        stage('Build Backend') {
+            steps {
+                dir('backend'){
+                sh 'mvn clean package'
+            }
+        }
+        }
+            stage('Unit Tests') {
+            steps {
+                dir('backend'){
+                        sh 'mvn test'
                 }
             }
         }
+        stage('Generate Code Coverage Report') {
+        steps {
+        dir('backend'){
+        sh 'mvn jacoco:report'
+    }
+    }
+}
+        stage('SonarQube Analysis') {
+            steps {
+                dir('backend') {
+                       withSonarQubeEnv('sonarserver') {
+                                      sh 'mvn sonar:sonar -Dsonar.java.binaries=target/classes'
+            }
+                }
+               
+        }
+        }
+
+        stage('Deploy to Nexus') {
+    steps {
+        dir('backend'){
+            sh 'mvn deploy -DskipTests'
+                }        
+    }
+}
