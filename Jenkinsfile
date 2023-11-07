@@ -9,7 +9,7 @@ pipeline {
      stage('Build Backend') {
             steps {
                 // Change to the Spring Boot project directory
-                dir('path/to/your/spring/boot/app') {
+                dir('DevOps_Project-20231016T100739Z-001') {
                     // Use Maven to build the application
                     sh 'mvn clean package'
                 }
