@@ -16,6 +16,18 @@ pipeline {
                 sh 'mvn test'
             }
         }
+               stage('Build Frontend') {
+            steps {
+                // Change to the Angular project directory
+                dir('path/to/your/angular/app') {
+                    // Install dependencies
+                    sh 'npm install'
+
+                    // Build the Angular application
+                    sh 'ng build --prod'
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 sh './deploy.sh'
