@@ -6,6 +6,7 @@ pipeline {
                 checkout scm
             }
         }
+        /*
      stage('Build Backend') {
             steps {
                 // Change to the Spring Boot project directory
@@ -15,17 +16,18 @@ pipeline {
                 }
             }
         }
-        /*
+       
         stage('Test') {
             steps {
                 sh 'mvn test'
             }
         }
+        */
         
                stage('Build Frontend') {
             steps {
                 // Change to the Angular project directory
-                dir('path/to/your/angular/app') {
+                dir('DevOps_Project_Front-20231016T100741Z-001(1)/DevOps_Project_Front') {
                     // Install dependencies
                     sh 'npm install'
 
@@ -34,7 +36,7 @@ pipeline {
                 }
             }
         }
-        */
+      
     
     }
 }
