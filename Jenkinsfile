@@ -9,7 +9,7 @@ pipeline {
         }
 
         
-       
+       /*
      
      stage('Build Backend') {
             steps {
@@ -30,6 +30,7 @@ pipeline {
              
             }
         }
+         */
         stage('Grafana/prometheus') {
             steps {
                 sh 'docker start 82bf015e0b20'
