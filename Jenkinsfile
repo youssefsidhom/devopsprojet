@@ -40,7 +40,7 @@ pipeline {
             }
         }
        
-         */
+        
         stage('Deploy to Nexus') {
     steps {
          dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
@@ -48,6 +48,20 @@ pipeline {
                 }        
             }
         }
+         */
+        stage('Build and Push Backend Image') {
+             steps {
+                  script {
+                    dir('back') {
+                            sh "docker login -u achref5 -p \$docker_cred"
+                            // Build your Docker image
+                            sh "docker build -t achref/devopsbackendproject:1.0 ."
+                            // Push the image
+                            sh "docker push achref/devopsbackendproject:1.0"
+                }
+            }
+        }
+         }
          
          
 
