@@ -25,7 +25,7 @@ pipeline {
             steps {
                           dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
                     // Use Maven to build the application
-                      sh 'mvn sonar:sonar -Dsonar.login=squ_583cf301b1e0723f8d1897b26d85a8855f1e82c8'
+                      sh 'mvn sonar:sonar -Dsonar.login=squ_3674da568f710816f5bea4ad71320a53b144ff49'
                 }
              
             }
