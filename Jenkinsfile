@@ -40,7 +40,7 @@ pipeline {
                 env.PATH = "${nodePath}:${env.PATH}"
         
                 // Navigate to the Angular project directory
-                dir('DevOps_Project_Front-20231016T100741Z-001/DevOps_Project_Front') {
+                dir('DevOps_Project_Front-20231016T100741Z-001(1)/DevOps_Project_Front') {
                     // Install project dependencies
                     sh 'npm install'
         
