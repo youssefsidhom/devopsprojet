@@ -37,13 +37,15 @@ pipeline {
             }
         }
          */
-        stage('Print Workspace Path') {
+  stage('Find Spring Boot JAR') {
     steps {
         script {
-            echo "Workspace Path: ${WORKSPACE}"
+            def jarFilePath = sh(script: "find ${WORKSPACE} -type f -name 'your-app-*.jar'", returnStatus: true).trim()
+            echo "Found JAR File: ${jarFilePath}"
         }
     }
 }
+
 
       
     
