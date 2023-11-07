@@ -65,13 +65,7 @@
         </dependency>
     </dependencies>
 
-         
-             <distributionManagement>
-    <repository>
-        <id>deploymentRep</id>
-        <url>http://192.168.184.128:8081/repository/devospprojet/</url>
-    </repository>
-</distributionManagement>
+   
 
     <build>
         <plugins>
@@ -89,5 +83,13 @@
             </plugin>
         </plugins>
     </build>
+
+               
+         <distributionManagement>
+             <repository>
+                 <id>deploymentRep</id>
+                 <url>http://192.168.184.128:8081/repository/devospprojet/</url>
+             </repository>
+         </distributionManagement>
 
 </project>
