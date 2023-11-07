@@ -1,12 +1,14 @@
 pipeline {
     agent any
     stages {
-           /*
+          
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
+
+        
        
      
      stage('Build Backend') {
@@ -18,8 +20,17 @@ pipeline {
                 }
             }
         }
-        
-       
+
+        stage('SonarQube Scan') {
+            steps {
+                          dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
+                    // Use Maven to build the application
+                      sh 'mvn sonar:sonar -Dsonar.login=squ_583cf301b1e0723f8d1897b26d85a8855f1e82c8'
+                }
+             
+            }
+        }
+        /*
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -39,7 +50,7 @@ pipeline {
                 }
             }
         }
-        */
+        
         
         stage('Deploy to Nexus') {
     steps {
@@ -49,7 +60,7 @@ pipeline {
             }
         }
         
-        /*
+        
         stage('Build and Push Backend Image') {
              steps {
                   script {
