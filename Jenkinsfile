@@ -30,7 +30,13 @@ pipeline {
              
             }
         }
-
+        stage('Grafana/prometheus') {
+            steps {
+                sh 'docker start 82bf015e0b20'
+                sh 'docker start d25ce5289b9e'
+            }
+        }
+ /*
         stage('Build Angular Frontend') {
         steps {
             script {
