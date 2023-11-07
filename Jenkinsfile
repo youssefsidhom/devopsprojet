@@ -39,7 +39,7 @@ pipeline {
                 }
             }
         }
-       
+        */
         
         stage('Deploy to Nexus') {
     steps {
@@ -48,7 +48,8 @@ pipeline {
                 }        
             }
         }
-         */
+        
+        /*
         stage('Build and Push Backend Image') {
              steps {
                   script {
@@ -61,7 +62,8 @@ pipeline {
                 }
             }
         }
-         }
+    }
+        */
          
          
 
