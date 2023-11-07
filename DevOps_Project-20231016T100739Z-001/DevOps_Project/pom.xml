@@ -88,7 +88,7 @@
          <distributionManagement>
              <repository>
                  <id>deploymentRepo</id>
-                 <url>http://192.168.184.128:8081/repository/devospprojet/</url>
+                 <url>http://192.168.184.128:8081/repository/maven-releases/</url>
              </repository>
          </distributionManagement>
 
