@@ -22,7 +22,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        */
+       
         
                stage('Build Frontend') {
             steps {
@@ -36,6 +36,15 @@ pipeline {
                 }
             }
         }
+         */
+        stage('Print Workspace Path') {
+    steps {
+        script {
+            echo "Workspace Path: ${WORKSPACE}"
+        }
+    }
+}
+
       
     
     }
