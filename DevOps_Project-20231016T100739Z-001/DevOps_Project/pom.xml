@@ -27,6 +27,9 @@
         </dependency>
 
 
+
+
+
            
     <dependency>
         <groupId>junit</groupId>
@@ -61,6 +64,14 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
+
+         
+             <distributionManagement>
+    <repository>
+        <id>nexus</id>
+        <url>https://nexus.example.com/repository/your-repo/</url>
+    </repository>
+</distributionManagement>
 
     <build>
         <plugins>
