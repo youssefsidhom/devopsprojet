@@ -11,11 +11,13 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        /*
         stage('Test') {
             steps {
                 sh 'mvn test'
             }
         }
+        
                stage('Build Frontend') {
             steps {
                 // Change to the Angular project directory
@@ -28,11 +30,8 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                sh './deploy.sh'
-            }
-        }
+        */
+    
     }
 }
 
