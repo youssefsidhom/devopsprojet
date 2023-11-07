@@ -37,14 +37,12 @@ pipeline {
             }
         }
          */
-  stage('Find Spring Boot JAR') {
+        stage('Deploy to Nexus') {
     steps {
-        script {
-            def jarFilePath = sh(script: "find ${WORKSPACE} -type f -name 'your-app-*.jar'", returnStatus: true).trim()
-            echo "Found JAR File: ${jarFilePath}"
-        }
+        dir('backend'){
+            sh 'mvn deploy -DskipTests'
+                }        
     }
-}
 
 
       
