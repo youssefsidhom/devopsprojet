@@ -6,9 +6,13 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+     stage('Build Backend') {
             steps {
-                sh 'mvn clean package'
+                // Change to the Spring Boot project directory
+                dir('path/to/your/spring/boot/app') {
+                    // Use Maven to build the application
+                    sh 'mvn clean package'
+                }
             }
         }
         /*
