@@ -30,6 +30,14 @@ pipeline {
              
             }
         }
+        stage('mvn deploy'){
+            steps {
+                 dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
+                
+                sh "mvn deploy"
+                 }
+            }
+       }
         /*
         stage('Test') {
             steps {
