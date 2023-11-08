@@ -54,7 +54,7 @@ sh 'mvn test'
 }
 }
         }
- /*
+ 
         stage('Build Angular Frontend') {
         steps {
             script {
