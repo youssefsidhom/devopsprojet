@@ -49,7 +49,7 @@ pipeline {
 
         stage('Unit Tests') {
 steps {
-dir ('back'){
+dir ('DevOps_Project-20231016T100739Z-001/DevOps_Project'){
 sh 'mvn test'
 }
 }
