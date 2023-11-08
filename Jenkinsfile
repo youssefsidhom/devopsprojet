@@ -77,6 +77,32 @@ sh 'mvn test'
  
 
          /*
+
+
+       tage('Build and Push Backend Image') {
+             steps {
+                  script {
+                    dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
+                            sh "docker login -u bouakroucha -p dckr_pat_2K37V8hZv0EnZ6AU8YMixrSlZuw"
+                            // Build your Docker image
+                            sh "docker build -t bouakroucha/devopsbackendproject:1.0 ."
+                            // Push the image
+                            sh "docker push bouakroucha/devopsbackendproject:1.0"
+                        }
+                    }
+                }
+         }
+
+
+
+
+
+
+
+
+
+
+         
         stage('Nexus mvn deploy'){
             steps {
                  dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
