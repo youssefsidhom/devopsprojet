@@ -46,6 +46,14 @@ pipeline {
                 sh 'docker start d25ce5289b9e'
             }
         }
+
+        stage('Unit Tests') {
+steps {
+dir ('back'){
+sh 'mvn test'
+}
+}
+        }
  /*
         stage('Build Angular Frontend') {
         steps {
