@@ -62,7 +62,8 @@ sh 'mvn test'
                 def nodeBin = tool 'NodeJS' // Replace with the actual tool name
                 def nodePath = "${nodeBin}/bin"
                 env.PATH = "${nodePath}:${env.PATH}"
-        
+                echo "env.PATH"
+                echo "nodePath"
                 // Navigate to the Angular project directory
                 dir('DevOps_Project_Front-20231016T100741Z-001(1)/DevOps_Project_Front') {
                     // Install project dependencies
