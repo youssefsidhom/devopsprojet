@@ -21,41 +21,14 @@ pipeline {
                 }
             }
         }
-
-        stage('SonarQube Scan') {
-            steps {
-                          dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
-                    // Use Maven to build the application
-                      sh 'mvn sonar:sonar -Dsonar.login=squ_99d938e3a7314f9bce2219987669c2a5f47a3ac7'
-                }
-             
-            }
-        }
-       
-             stage('Deploy to Nexus') {
-    steps {
-         dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
-            sh 'mvn deploy -DskipTests'
-                }        
-            }
-        }
-        
-        stage('Grafana/prometheus') {
-            steps {
-                sh 'docker start 82bf015e0b20'
-                sh 'docker start d25ce5289b9e'
-            }
-        }
-
-        stage('Unit Tests') {
+         stage('Unit Tests') {
 steps {
 dir ('DevOps_Project-20231016T100739Z-001/DevOps_Project'){
 sh 'mvn test'
 }
 }
         }
- 
-        stage('Build Angular Frontend') {
+                stage('Build Angular Frontend') {
         steps {
             script {
                 // Set the PATH to include the directory where npm and node are installed
@@ -73,6 +46,36 @@ sh 'mvn test'
             }
         }
     }
+                    stage('Deploy to Nexus') {
+    steps {
+         dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
+            sh 'mvn deploy -DskipTests'
+                }        
+            }
+        }
+
+        stage('SonarQube Scan') {
+            steps {
+                          dir('DevOps_Project-20231016T100739Z-001/DevOps_Project') {
+                    // Use Maven to build the application
+                      sh 'mvn sonar:sonar -Dsonar.login=squ_99d938e3a7314f9bce2219987669c2a5f47a3ac7'
+                }
+             
+            }
+        }
+       
+ 
+        
+        stage('Grafana/prometheus') {
+            steps {
+                sh 'docker start 82bf015e0b20'
+                sh 'docker start d25ce5289b9e'
+            }
+        }
+
+       
+ 
+
          /*
         stage('Nexus mvn deploy'){
             steps {
